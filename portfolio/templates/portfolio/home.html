@@ -1,0 +1,24 @@
+{%extends 'portfolio/base.html' %}
+
+{% block content %}
+
+    <h1>Jeremy's Portfolio</h1>
+
+    {% load static %}
+
+    <a href= "{% static 'portfolio/ShareStash Logo Small (336 x 80 px).png' %}"> Link </a>
+    <img src="{% static 'portfolio/ps5_2.jpg' %}" />
+
+    {% for projects in projects %}
+
+    <h2>{{ projects.title }}</h2>
+    <p>{{ projects.description }}</p>
+    <img src="{{ projects.image.url }}" >
+    {% if projects.url %}
+    <br><a href="{{ projects.url}}">Link</a>
+    {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}
